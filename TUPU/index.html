@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亚文化知识图谱 (1960s-2020s)</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>亚文化美学文化知识图谱 (1960s-2020s)</h1>
+            <p>探索六个变革年代的亚文化运动及其相互联系</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-point">
+                <div class="timeline-year">1960s</div>
+                <div class="timeline-label">反叛、和平与爱、迷幻艺术、现代主义</div>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-year">1970s</div>
+                <div class="timeline-label">原始能量、反商业、俱乐部场景、雌雄同体</div>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-year">1980s</div>
+                <div class="timeline-label">城市表达、消费主义、黑暗浪漫、科技想象</div>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-year">1990s</div>
+                <div class="timeline-label">全球化、数字萌芽、真实与疏离、锐舞文化</div>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-year">2000s</div>
+                <div class="timeline-label">网络社会化、身份焦虑、草根发声、科技乐观与怀旧</div>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-year">2010s</div>
+                <div class="timeline-label">圈层化、视觉化、传统复兴、反讽与批判</div>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-year">2020s</div>
+                <div class="timeline-label">虚拟化、情绪价值、文化破壁、消费异化</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn active" onclick="filterByDecade('all')">全部年代</button>
+            <button class="control-btn" onclick="filterByDecade('1960s')">1960s</button>
+            <button class="control-btn" onclick="filterByDecade('1970s')">1970s</button>
+            <button class="control-btn" onclick="filterByDecade('1980s')">1980s</button>
+            <button class="control-btn" onclick="filterByDecade('1990s')">1990s</button>
+            <button class="control-btn" onclick="filterByDecade('2000s')">2000s</button>
+            <button class="control-btn" onclick="filterByDecade('2010s')">2010s</button>
+            <button class="control-btn" onclick="filterByDecade('2020s')">2020s</button>
+            <button class="control-btn" onclick="resetView()">重置视图</button>
+        </div>
+        
+        <div class="content">
+            <div id="network">
+                <div class="loading" id="loading-element">加载知识图谱数据...</div>
+            </div>
+            <div class="info-panel">
+                <div id="default-info" class="default-info">
+                    <h2>欢迎使用亚文化知识图谱</h2>
+                    <p>点击图谱中的节点查看详细信息</p>
+                    <p>使用上方按钮按年代筛选</p>
+                    <p>拖动节点可以重新布局</p>
+                    
+                   <div class="legend" id="legendContainer"></div>
+                    
+                    <div id="decade-stats" class="decade-stats">
+                        <h3>数据统计</h3>
+                        <div class="stats-item">
+                            <span class="stats-label">节点总数:</span>
+                            <span class="stats-value" id="total-nodes">0</span>
+                        </div>
+                        <div class="stats-item">
+                            <span class="stats-label">关系总数:</span>
+                            <span class="stats-value" id="total-edges">0</span>
+                        </div>
+                        <div class="stats-item">
+                            <span class="stats-label">年代覆盖:</span>
+                            <span class="stats-value">1960s-2020s</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="node-info" class="node-info"></div>
+                <div id="error-info" class="error-message" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
